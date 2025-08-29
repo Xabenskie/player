@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
+````js
 export default tseslint.config([
   globalIgnores(['dist']),
   {
@@ -29,41 +29,42 @@ export default tseslint.config([
       // Other configs...
     ],
     languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+      # Минималистичный видеоплеер на React + TypeScript
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+      ## Описание
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+      Это простое приложение позволяет загружать локальный видеофайл и воспроизводить его с помощью кастомного видеоплеера. Плеер реализован на React и TypeScript, с минималистичным дизайном и удобным управлением.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+      ## Функционал
+      - Загрузка локального видеофайла (через input)
+      - Кастомные кнопки Play/Pause
+      - Прогресс-бар с возможностью перемотки
+      - Отображение текущего времени и общей длительности
+      - Автоматическая остановка воспроизведения в конце видео
+
+      ## Запуск
+
+      1. Установите зависимости:
+        ```bash
+        npm install
+        ```
+      2. Запустите приложение:
+        ```bash
+        npm run dev
+        ```
+      3. Откройте браузер и перейдите по адресу, указанному в консоли (обычно http://localhost:5173)
+
+      ## Использование
+
+      1. Нажмите "Выбрать файл" и загрузите видео (mp4).
+      2. Управляйте воспроизведением с помощью кнопок и прогресс-бара.
+
+      ## Технологии
+      - React
+      - TypeScript
+      - Vite
+
+      ## Структура проекта
+      - `src/video-player.tsx` — основной компонент видеоплеера
+      - `src/App.tsx` — точка входа приложения
+````
